@@ -1,3 +1,27 @@
+PUT http://127.0.0.1:10001/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "vasya",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZhc3lhIiwiZXhwIjoxNjc3NTg1MTA1fQ.XmEdMz1exUAlF6x7zyQAQMk9cmR7vRNRyfkAz3MrhP8"
+}
+
+###
+POST http://127.0.0.1:10001/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username":"vasya",
+  "password":"my_little_pony"
+}
+
+###
+GET http://127.0.0.1:10001/users/
+Accept: application/json
+
+###
 GET http://127.0.0.1:10001/movies/
 Accept: application/json
 
@@ -86,3 +110,5 @@ Content-Type: application/json
 ###
 
 DELETE http://127.0.0.1:10001/movies/21
+
+
