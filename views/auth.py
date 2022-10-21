@@ -5,12 +5,12 @@ import jwt
 from flask import request, abort
 from flask_restx import Namespace, Resource
 
+from constants import secret, algo
 from models import User
 from setup_db import db
 
 auth_ns = Namespace('auth')
-secret = 's3cR$eT'
-algo = 'HS256'
+
 
 
 @auth_ns.route('/')
@@ -66,3 +66,4 @@ class AuthView(Resource):
         tokens = {"access_token": access_token, "refresh_token": refresh_token}
 
         return tokens, 201
+
