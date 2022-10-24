@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
-from auth import auth_required
+from auth import auth_required, admin_required
 from models import Genre, GenreSchema
 from setup_db import db
 
@@ -16,6 +16,7 @@ class GenresView(Resource):
         res = GenreSchema(many=True).dump(rs)
         return res, 200
 
+    @admin_required
     def post(self):
         req_json = request.json
         req_json.pop("id", None)
@@ -33,6 +34,7 @@ class GenreView(Resource):
         sm_d = GenreSchema().dump(r)
         return sm_d, 200
 
+    @admin_required
     def put(self, rid):
         genre = db.session.query(Genre).get(rid)
         req_json = request.json
@@ -41,6 +43,7 @@ class GenreView(Resource):
         db.session.commit()
         return "", 204
 
+    @admin_required
     def delete(self, rid):
         genre = db.session.query(Genre).get(rid)
         db.session.delete(genre)

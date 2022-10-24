@@ -1,3 +1,14 @@
+POST http://127.0.0.1:10001/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+	"username": "ivan",
+	"password": "qwerty",
+	"role": "admin"
+}
+
+###
 PUT http://127.0.0.1:10001/auth/
 Accept: application/json
 Content-Type: application/json

@@ -22,6 +22,7 @@ class UsersView(Resource):
         db.session.commit()
         return "", 201, {"location": f"/users/{new_user.id}"}
 
+
 @user_ns.route('/<int:uid>')
 class UserView(Resource):
     def get(self, uid):
