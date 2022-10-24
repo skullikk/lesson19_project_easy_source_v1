@@ -5,7 +5,6 @@ from auth import auth_required, admin_required
 from models import Director, DirectorSchema
 from setup_db import db
 
-
 director_ns = Namespace('directors')
 
 
